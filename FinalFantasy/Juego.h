@@ -1,59 +1,32 @@
 #pragma once
+#include "Constantes.h"
+
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Data;
 
 namespace FinalFantasy {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-
-	/// <summary>
-	/// Summary for Juego
-	/// </summary>
-	public ref class Juego : public System::Windows::Forms::Form
-	{
+	public ref class Juego : public System::Windows::Forms::Form {
 	public:
-		Juego(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		//aleatorio generara todos los numeros random en el futuro
+		static Random^ aleatorio;
 
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~Juego()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
+		//static array<Objeto ^> ^objetos;
 
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		//myform, graphics y context serviran para mostar los graficos.
+		static Juego ^myform;
+		static Graphics ^graphics;
+		static BufferedGraphicsContext^ context;
+		static System::Windows::Forms::Timer ^timer;
+		System::ComponentModel::IContainer ^components;
 
-#pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Juego";
-			this->Padding = System::Windows::Forms::Padding(0);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		}
-#pragma endregion
+		//Funciones del Juego
+		Juego(void);
+		~Juego();
+		void InitializeComponent(void);
+		void inicializarComponentes();
+	private: System::Void Juego_KeyDown(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
+	private: System::Void Juego_KeyUp(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
 	};
 }

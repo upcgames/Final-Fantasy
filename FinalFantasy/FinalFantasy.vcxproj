@@ -82,6 +82,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constantes.h" />
+    <ClInclude Include="Imagenes.h" />
     <ClInclude Include="Juego.h">
       <FileType>CppForm</FileType>
     </ClInclude>
