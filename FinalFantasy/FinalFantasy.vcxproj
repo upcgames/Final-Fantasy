@@ -84,6 +84,7 @@
     <ClCompile Include="IntroduccionEscena.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapaEscena.cpp" />
     <ClCompile Include="Posicion.cpp" />
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
