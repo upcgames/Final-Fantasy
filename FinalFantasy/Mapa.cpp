@@ -1,4 +1,5 @@
 #pragma once
+#include "Imagenes.h"
 #include "Mapas.h"
 #include "Juego.h"
 
@@ -16,7 +17,17 @@ namespace FinalFantasy {
 				int coordenada_x = x * RESOLUCION_X;
 				int coordenada_y = y * RESOLUCION_Y;
 
-				//switch (matriz_terreno[y, x])
+				switch (matriz_terreno[y, x]) {
+				case Loceta:
+					imagen_terreno = IMAGENES::LOCETA;
+					break;
+				case Pasto:
+					imagen_terreno = IMAGENES::PASTO;
+					break;
+				case Maceta:
+					imagen_terreno = IMAGENES::MACETA;
+					break;
+				}
 
 				capa_terreno->Graphics->DrawImage(imagen_terreno, Rectangle(coordenada_x, coordenada_y, RESOLUCION_X, RESOLUCION_Y));
 

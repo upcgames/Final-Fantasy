@@ -27,7 +27,7 @@ namespace FinalFantasy {
 		~Juego();
 		void InitializeComponent(void);
 		void inicializarComponentes();
-	private: System::Void Juego_KeyDown(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
-	private: System::Void Juego_KeyUp(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
+		private: System::Void Juego_KeyDown(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
+		private: System::Void Juego_KeyUp(System::Object ^sender, System::Windows::Forms::KeyEventArgs ^e);
 	};
 }

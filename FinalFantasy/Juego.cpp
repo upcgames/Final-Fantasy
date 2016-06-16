@@ -7,6 +7,7 @@
 #include "Constantes.h"
 #include "Imagenes.h"
 #include "Escenas.h"
+#include "Salaverry.cpp"
 
 namespace FinalFantasy {
 
@@ -33,8 +34,27 @@ namespace FinalFantasy {
 
 		//Inicializamos las escenas
 		ESCENAS::introduccion = gcnew IntroduccionEscena();
-		//ESCENAS::campus = gcnew CampusEscena();
-		//ESCENAS::tienda = gcnew TiendaEscena();
+		ESCENAS::mapa = gcnew MapaEscena();
+
+		MAPAS::salaverry->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Maceta, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Pasto, Pasto, Maceta, Pasto, Pasto, Pasto, Maceta, Pasto, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Loceta, Loceta, Pasto, Maceta, Loceta, Loceta, Maceta, Maceta, Loceta, Loceta, Loceta, Maceta, Loceta, Loceta, Maceta },
+			{ Maceta, Loceta, Loceta, Maceta, Loceta, Loceta, Loceta, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Loceta, Loceta, Loceta, Loceta, Pasto, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Pasto, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+
+		MAPAS::salaverry->objetos = gcnew List<Objeto ^>();
+		MAPAS::salaverry->objetos->AddRange(gcnew array<Objeto ^>{
+			gcnew PuertaObjeto(Salaverry, gcnew Posicion(6, 3, true), gcnew Posicion(9, 7, true), Arriba)
+		});
+
+		MAPAS::salaverry->generarCapaTerreno();
 
 		//Empezar el juego
 		Escena::EmpezarConEscena(ESCENAS::introduccion);
@@ -89,6 +109,11 @@ namespace FinalFantasy {
 		// Fondos
 		IMAGENES::INTRODUCCION_FONDO = Image::FromFile("Imagenes\\Interfaces\\Introduccion.png");
 
+		// Objetos
+		IMAGENES::LOCETA = Image::FromFile("Imagenes\\Objetos\\Piso4.png");
+		IMAGENES::MACETA = Image::FromFile("Imagenes\\Objetos\\Bloque5.png");
+		IMAGENES::PASTO = Image::FromFile("Imagenes\\Objetos\\Piso2.png");
+
 		// Controles
 		CONTROLES::CAMBIO_ESCENA = Keys::E;
 		CONTROLES::SALIR = Keys::Escape;
@@ -137,7 +162,7 @@ namespace FinalFantasy {
 			std::begin(TERRENOS_COLISIONANTES),
 			std::end(TERRENOS_COLISIONANTES),
 			terreno
-			);
+		);
 
 		bool impide = indice_terreno != std::end(TERRENOS_COLISIONANTES);
 

@@ -7,8 +7,6 @@ using namespace System::Collections::Generic;
 namespace FinalFantasy {
 
 	public ref class Mapa {
-	protected:
-		void generarCapaTerreno();
 	public:
 		array<Terreno, 2> ^matriz_terreno;
 		List<Objeto ^> ^objetos;
@@ -19,6 +17,7 @@ namespace FinalFantasy {
 		Terreno getTerrenoEnCoordenada(Posicion ^posicion);
 
 		void mostrarTerreno(Graphics ^graphics);
+		void generarCapaTerreno();
 		void mostrarObjetos(Graphics ^graphics);
 
 		Mapa();

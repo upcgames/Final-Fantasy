@@ -30,7 +30,6 @@ namespace FinalFantasy {
 		ActivarEscena(escena);
 	}
 
-
 	void Escena::ActivarEscena(Escena ^escena) {
 		escena->escena_activa = true;
 

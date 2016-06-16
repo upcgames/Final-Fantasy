@@ -31,7 +31,7 @@ namespace FinalFantasy {
 	void IntroduccionEscena::teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if (escena_activa && escena_dibujada) {
 			DesactivarEscena(this);
-			ActivarEscena(ESCENAS::introduccion);
+			ActivarEscena(ESCENAS::mapa);
 		}
 	}
 }
