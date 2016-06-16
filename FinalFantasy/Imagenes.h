@@ -1,5 +1,7 @@
 #pragma once
 
+using namespace System::Drawing;
+
 namespace FinalFantasy {
 
 	public ref class IMAGENES abstract sealed {

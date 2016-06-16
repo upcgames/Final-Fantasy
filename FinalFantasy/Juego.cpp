@@ -6,7 +6,7 @@
 #include "Juego.h"
 #include "Constantes.h"
 #include "Imagenes.h"
-//#include "Escenas.h"
+#include "Escenas.h"
 
 namespace FinalFantasy {
 
@@ -32,12 +32,12 @@ namespace FinalFantasy {
 		aleatorio = gcnew Random();
 
 		//Inicializamos las escenas
-		//ESCENAS::introduccion = gcnew IntroduccionEscena();
+		ESCENAS::introduccion = gcnew IntroduccionEscena();
 		//ESCENAS::campus = gcnew CampusEscena();
 		//ESCENAS::tienda = gcnew TiendaEscena();
 
 		//Empezar el juego
-		//Escena::EmpezarConEscena(ESCENAS::campus);
+		Escena::EmpezarConEscena(ESCENAS::introduccion);
 	}
 
 	Juego::~Juego() {
@@ -125,7 +125,7 @@ namespace FinalFantasy {
 		}
 	}
 
-	bool noHayONoExsite(Object^ objeto) {
+	bool noHayONoExsite(Object ^objeto) {
 		if (objeto == nullptr)
 			return true;
 		else
