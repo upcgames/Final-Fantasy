@@ -63,6 +63,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dialogo.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Constantes.h">
       <Filter>Header Files\Clases Staticas</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogo.h">
+      <Filter>Header Files\Clases Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

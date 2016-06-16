@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animado.cpp" />
+    <ClCompile Include="Dialogo.cpp" />
     <ClCompile Include="Escena.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="IntroduccionEscena.cpp" />
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constantes.h" />
+    <ClInclude Include="Dialogo.h" />
     <ClInclude Include="Escena.h" />
     <ClInclude Include="Escenas.h" />
     <ClInclude Include="Figura.h" />

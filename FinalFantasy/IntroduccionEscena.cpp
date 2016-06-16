@@ -1,5 +1,6 @@
 #pragma once
 #include "Imagenes.h"
+#include "Dialogo.h"
 #include "Escenas.h"
 #include "Escena.h"
 #include "Juego.h"
@@ -17,16 +18,10 @@ namespace FinalFantasy {
 				IMAGENES::mostarFondo(IMAGENES::INTRODUCCION_FONDO, escena_buffer->Graphics);
 				escena_buffer->Render(Juego::graphics);
 
-				/*Dialogo::mostarMensaje(
-					"Bienvenido al mundo YuGiOh!!!",
-					"Para moverte usa las flechas del teclado",
-					"Estas en el Campus de la UPC!!",
-					"Encontrarás monedas a lo largo del mapa",
-					"O también puedes encontrar otras piezas..",
-					"Tu objetivo es derrotar a 4 profesores",
-					"Puedes intercambiar monedas por cartas",
-					"Que empieze tu aventura!"
-					);*/
+				Dialogo::mostarMensaje(
+					"lorem ipsum ",
+					"esta es una prueba"
+					);
 
 				escena_dibujada = true;
 			}
