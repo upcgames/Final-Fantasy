@@ -9,9 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Clases Base">
-      <UniqueIdentifier>{e744d333-9ac6-4c08-b2d2-5806f66a4dff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Clases Padre">
       <UniqueIdentifier>{bf0c7f52-4fc3-44cf-8a87-e0926aca3c22}</UniqueIdentifier>
     </Filter>
@@ -31,8 +28,29 @@
     <Filter Include="Source Files\Clases Padre">
       <UniqueIdentifier>{7acb57cf-e0fa-4779-8c17-0b80ba2de496}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Clases Base">
+      <UniqueIdentifier>{6eafdba6-a9c5-4199-9c1b-e4c4f28d7aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Clases Unicas">
+      <UniqueIdentifier>{e744d333-9ac6-4c08-b2d2-5806f66a4dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases Unicas">
+      <UniqueIdentifier>{4e2f4ec7-853d-4e2a-8d0c-0b1f39eea56f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Escenas">
       <UniqueIdentifier>{0f3f95ae-6c09-49aa-b8bd-70e63d3498af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objetos">
+      <UniqueIdentifier>{7be30c31-c08f-44fc-aeea-23ca9e9009b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objetos">
+      <UniqueIdentifier>{ff3d9964-0d50-441b-a686-a51a33430883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Personajes">
+      <UniqueIdentifier>{ea4a61a6-eab8-4124-847d-1643c2587463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Personajes">
+      <UniqueIdentifier>{228f25f0-ebb6-4072-8785-a4fbfd284696}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,26 +63,50 @@
     <ClCompile Include="MapaEscena.cpp">
       <Filter>Source Files\Escenas</Filter>
     </ClCompile>
-    <ClCompile Include="Posicion.cpp">
-      <Filter>Source Files\Clases Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files\Clases Base</Filter>
-    </ClCompile>
     <ClCompile Include="Animado.cpp">
-      <Filter>Source Files\Clases Padre</Filter>
-    </ClCompile>
-    <ClCompile Include="Escena.cpp">
-      <Filter>Source Files\Clases Padre</Filter>
-    </ClCompile>
-    <ClCompile Include="Figura.cpp">
       <Filter>Source Files\Clases Padre</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dialogo.cpp">
+      <Filter>Source Files\Clases Unicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Posicion.cpp">
+      <Filter>Source Files\Clases Unicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\Clases Unicas</Filter>
+    </ClCompile>
+    <ClCompile Include="Escena.cpp">
       <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Figura.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapa.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Objeto.cpp">
+      <Filter>Source Files\Clases Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EscenaDeMapa.cpp">
+      <Filter>Source Files\Clases Padre</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjetoStatico.cpp">
+      <Filter>Source Files\Clases Padre</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjetoAnimado.cpp">
+      <Filter>Source Files\Clases Padre</Filter>
+    </ClCompile>
+    <ClCompile Include="PuertaObjeto.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="PuertaEscenaObjeto.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="Marco.cpp">
+      <Filter>Source Files\Personajes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,16 +114,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Posicion.h">
-      <Filter>Header Files\Clases Base</Filter>
+      <Filter>Header Files\Clases Unicas</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>Header Files\Clases Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Escena.h">
-      <Filter>Header Files\Clases Padre</Filter>
-    </ClInclude>
-    <ClInclude Include="Figura.h">
-      <Filter>Header Files\Clases Padre</Filter>
+      <Filter>Header Files\Clases Unicas</Filter>
     </ClInclude>
     <ClInclude Include="Animado.h">
       <Filter>Header Files\Clases Padre</Filter>
@@ -98,11 +134,44 @@
     <ClInclude Include="MapaEscena.h">
       <Filter>Header Files\Escenas</Filter>
     </ClInclude>
-    <ClInclude Include="Constantes.h">
+    <ClInclude Include="Dialogo.h">
+      <Filter>Header Files\Clases Unicas</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapas.h">
       <Filter>Header Files\Clases Staticas</Filter>
     </ClInclude>
-    <ClInclude Include="Dialogo.h">
+    <ClInclude Include="Escena.h">
       <Filter>Header Files\Clases Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Figura.h">
+      <Filter>Header Files\Clases Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Objeto.h">
+      <Filter>Header Files\Clases Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapa.h">
+      <Filter>Header Files\Clases Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EscenaDeMapa.h">
+      <Filter>Header Files\Clases Padre</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjetoStatico.h">
+      <Filter>Header Files\Clases Padre</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjetoAnimado.h">
+      <Filter>Header Files\Clases Padre</Filter>
+    </ClInclude>
+    <ClInclude Include="PuertaObjeto.h">
+      <Filter>Header Files\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="PuertaEscenaObjeto.h">
+      <Filter>Header Files\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="Marco.h">
+      <Filter>Header Files\Personajes</Filter>
+    </ClInclude>
+    <ClInclude Include="Constantes.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

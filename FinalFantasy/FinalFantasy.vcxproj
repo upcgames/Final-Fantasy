@@ -81,18 +81,27 @@
     <ClCompile Include="Animado.cpp" />
     <ClCompile Include="Dialogo.cpp" />
     <ClCompile Include="Escena.cpp" />
+    <ClCompile Include="EscenaDeMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
     <ClCompile Include="IntroduccionEscena.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="MapaEscena.cpp" />
+    <ClCompile Include="Marco.cpp" />
+    <ClCompile Include="Objeto.cpp" />
+    <ClCompile Include="ObjetoAnimado.cpp" />
+    <ClCompile Include="ObjetoStatico.cpp" />
     <ClCompile Include="Posicion.cpp" />
+    <ClCompile Include="PuertaEscenaObjeto.cpp" />
+    <ClCompile Include="PuertaObjeto.cpp" />
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constantes.h" />
     <ClInclude Include="Dialogo.h" />
     <ClInclude Include="Escena.h" />
+    <ClInclude Include="EscenaDeMapa.h" />
     <ClInclude Include="Escenas.h" />
     <ClInclude Include="Figura.h" />
     <ClInclude Include="Animado.h" />
@@ -101,8 +110,16 @@
     <ClInclude Include="Juego.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Mapa.h" />
     <ClInclude Include="MapaEscena.h" />
+    <ClInclude Include="Mapas.h" />
+    <ClInclude Include="Marco.h" />
+    <ClInclude Include="Objeto.h" />
+    <ClInclude Include="ObjetoAnimado.h" />
+    <ClInclude Include="ObjetoStatico.h" />
     <ClInclude Include="Posicion.h" />
+    <ClInclude Include="PuertaEscenaObjeto.h" />
+    <ClInclude Include="PuertaObjeto.h" />
     <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

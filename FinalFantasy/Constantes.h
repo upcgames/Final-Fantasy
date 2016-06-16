@@ -26,12 +26,9 @@ namespace FinalFantasy {
 	// Enums
 	public enum TipoEscena { Introduccion, Campus, Tienda };
 	public enum Direccion { Arriba, Abajo, Izquierda, Derecha };
-	public enum TiposDeCarta { Criticos, Basicos, Extra, Electivos };
-	public enum Pertenencia { Vendedor, DeMarco, DeProfesor };
-	public enum ModoBatalla { Defensa, Ataque };
-	public enum Objetos { Puerta, PuertaEscena, Moneda };
+	public enum Objetos { Puerta, PuertaEscena };
 	public enum Terreno { Loceta, Agua, Maceta, Pasto };
-	public enum MapaTipo { Plazuela, PabellonA, PabellonB, Jardin, Sotano };
+	public enum MapaTipo { Salaverry };
 
 	extern Terreno TERRENOS_COLISIONANTES[];
 	// Funciones Utiles

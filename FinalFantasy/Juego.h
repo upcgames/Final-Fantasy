@@ -1,5 +1,6 @@
 #pragma once
 #include "Constantes.h"
+#include "Objeto.h"
 
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -12,7 +13,7 @@ namespace FinalFantasy {
 		//aleatorio generara todos los numeros random en el futuro
 		static Random^ aleatorio;
 
-		//static array<Objeto ^> ^objetos;
+		static array<Objeto ^> ^objetos;
 
 		//myform, graphics y context serviran para mostar los graficos.
 		static Juego ^myform;
