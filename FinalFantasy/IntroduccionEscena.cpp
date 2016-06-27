@@ -15,15 +15,17 @@ namespace FinalFantasy {
 	void IntroduccionEscena::timerTick(System::Object^  sender, System::EventArgs^  e) {
 		if (escena_activa) {
 			if (!escena_dibujada) {
-				IMAGENES::mostarFondo(IMAGENES::INTRODUCCION_FONDO, escena_buffer->Graphics);
-				escena_buffer->Render(Juego::graphics);
 
 				Dialogo::mostarMensaje(
-					"lorem ipsum ",
-					"esta es una prueba"
-					);
+					"Bienvenido a Final Fantasy!!!",
+					"Juego de estructuras 2016 - UPC!",
+					"Se hace uso de arboles mediante",
+					"la recursividad!!!"
+				);
 
-				escena_dibujada = true;
+				if (Dialogo::getNumeroDeParrafo() == 0) {
+					IMAGENES::mostarFondo(IMAGENES::INTRODUCCION_FONDO, escena_buffer->Graphics);
+				}
 			}
 		}
 	}

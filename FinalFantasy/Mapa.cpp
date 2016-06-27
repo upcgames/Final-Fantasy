@@ -5,8 +5,17 @@
 
 namespace FinalFantasy {
 
-	Mapa::Mapa() {
+	Mapa::Mapa(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3) {
+		this->mapa_p1 = mapa_p1;
+		this->mapa_p2 = mapa_p2;
+		this->mapa_p3 = mapa_p3;
 		capa_terreno = Juego::context->Allocate(Juego::graphics, Juego::myform->ClientRectangle);
+	}
+
+	void Mapa::cambiarPuertas(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3) {
+		this->mapa_p1 = mapa_p1;
+		this->mapa_p2 = mapa_p2;
+		this->mapa_p3 = mapa_p3;
 	}
 
 	void Mapa::generarCapaTerreno() {
@@ -21,12 +30,40 @@ namespace FinalFantasy {
 				case Loceta:
 					imagen_terreno = IMAGENES::LOCETA;
 					break;
-				case Pasto:
-					imagen_terreno = IMAGENES::PASTO;
+				case Agua:
+					imagen_terreno = IMAGENES::AGUA;
+					break;
+				case Arena:
+					imagen_terreno = IMAGENES::ARENA;
+					break;
+				case Granito:
+					imagen_terreno = IMAGENES::GRANITO;
+					break;
+				case Hielo:
+					imagen_terreno = IMAGENES::HIELO;
+					break;
+				case Lava:
+					imagen_terreno = IMAGENES::LAVA;
+					break;
+				case Lodo:
+					imagen_terreno = IMAGENES::LODO;
 					break;
 				case Maceta:
 					imagen_terreno = IMAGENES::MACETA;
 					break;
+				case Pasto:
+					imagen_terreno = IMAGENES::PASTO;
+					break;
+				case Roca:
+					imagen_terreno = IMAGENES::ROCA;
+					break;
+				case Tejado:
+					imagen_terreno = IMAGENES::TEJADO;
+					break;
+				default:
+					imagen_terreno = IMAGENES::TIERRA;
+					break;
+
 				}
 
 				capa_terreno->Graphics->DrawImage(imagen_terreno, Rectangle(coordenada_x, coordenada_y, RESOLUCION_X, RESOLUCION_Y));
@@ -70,6 +107,16 @@ namespace FinalFantasy {
 		return matriz_terreno[y, x];
 	}
 
+	void Mapa::mostrarPuertas(Graphics ^graphics) {
+		if (!noHayONoExsite(mapa_p1))
+			graphics->DrawImage(IMAGENES::PUERTA, Rectangle(puerta1->x,puerta1->y, RESOLUCION_X, RESOLUCION_Y));
+		if (!noHayONoExsite(mapa_p2))
+			graphics->DrawImage(IMAGENES::PUERTA, Rectangle(puerta2->x, puerta2->y, RESOLUCION_X, RESOLUCION_Y));
+		if (!noHayONoExsite(mapa_p3))
+			graphics->DrawImage(IMAGENES::PUERTA, Rectangle(puerta3->x, puerta3->y, RESOLUCION_X, RESOLUCION_Y));
+
+	}
+
 	void Mapa::mostrarTerreno(Graphics ^graphics) {
 		capa_terreno->Render(graphics);
 	}
@@ -86,9 +133,6 @@ namespace FinalFantasy {
 
 		switch (pabellon)
 		{
-		case Salaverry:
-			return MAPAS::salaverry;
-			break;
 		default:
 			return nullptr;
 		}

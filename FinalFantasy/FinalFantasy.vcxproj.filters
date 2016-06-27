@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Personajes">
       <UniqueIdentifier>{228f25f0-ebb6-4072-8785-a4fbfd284696}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arbol Binario">
+      <UniqueIdentifier>{c6f0c399-c187-4680-9e67-e0391101fddc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Juego.cpp">
@@ -107,6 +110,18 @@
     </ClCompile>
     <ClCompile Include="Marco.cpp">
       <Filter>Source Files\Personajes</Filter>
+    </ClCompile>
+    <ClCompile Include="Fuentes.h">
+      <Filter>Header Files\Clases Staticas</Filter>
+    </ClCompile>
+    <ClCompile Include="MonedaObjeto.cpp">
+      <Filter>Source Files\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="MapaArbol.cpp">
+      <Filter>Arbol Binario</Filter>
+    </ClCompile>
+    <ClCompile Include="MapaNodo.cpp">
+      <Filter>Arbol Binario</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +187,18 @@
     </ClInclude>
     <ClInclude Include="Constantes.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controles.h">
+      <Filter>Header Files\Clases Staticas</Filter>
+    </ClInclude>
+    <ClInclude Include="MonedaObjeto.h">
+      <Filter>Header Files\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="MapaArbol.h">
+      <Filter>Arbol Binario</Filter>
+    </ClInclude>
+    <ClInclude Include="MapaNodo.h">
+      <Filter>Arbol Binario</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

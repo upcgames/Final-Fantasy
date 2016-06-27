@@ -1,4 +1,6 @@
 #pragma once
+
+#include "Controles.h"
 #include "MapaEscena.h"
 #include "Marco.h"
 #include "Mapas.h"
@@ -6,8 +8,7 @@
 
 namespace FinalFantasy {
 
-	MapaEscena::MapaEscena()
-	{
+	MapaEscena::MapaEscena() {
 		Marco::marco = gcnew Marco(gcnew Posicion(0, 0));
 		onTimerTick = gcnew EventHandler(this, &MapaEscena::timerTick);
 		onKeyDown = gcnew KeyEventHandler(this, &MapaEscena::teclaDown);
@@ -15,9 +16,8 @@ namespace FinalFantasy {
 		onMouseClick = gcnew MouseEventHandler(this, &MapaEscena::mouseClick);
 
 		Marco::marco = gcnew Marco(gcnew Posicion(9, 7, true));
-		MAPAS::salaverry = gcnew Mapa();
 
-		Mapa::mapa_actual = MAPAS::salaverry;
+		Mapa::mapa_actual = MAPAS::lista[0];
 	}
 
 	void MapaEscena::timerTick(System::Object^  sender, System::EventArgs^  e)
@@ -31,7 +31,9 @@ namespace FinalFantasy {
 
 			Mapa::mapa_actual->mostrarTerreno(escena_buffer->Graphics);
 			Mapa::mapa_actual->mostrarObjetos(escena_buffer->Graphics);
+			Mapa::mapa_actual->mostrarPuertas(escena_buffer->Graphics);
 			Marco::mostrarloEn(escena_buffer->Graphics);
+			void mostrarPuertas(Graphics ^graphics);
 
 			escena_buffer->Render(Juego::graphics);
 			escena_dibujada = true;

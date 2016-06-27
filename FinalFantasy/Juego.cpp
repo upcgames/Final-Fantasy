@@ -3,8 +3,11 @@
 #include <algorithm>
 #include <iterator>
 
+#include "MonedaObjeto.h"
 #include "Juego.h"
 #include "Constantes.h"
+#include "Controles.h"
+#include "Fuentes.h"
 #include "Imagenes.h"
 #include "Escenas.h"
 #include "Salaverry.cpp"
@@ -23,38 +26,118 @@ namespace FinalFantasy {
 
 	Terreno TERRENOS_COLISIONANTES[] = { Maceta, Agua };
 
+	void inicializarMapas() {
+		MAPAS::lista = gcnew List<Mapa^>(5);
+
+		for (int i = 0; i < 5; i++) {
+			MAPAS::lista->Add(gcnew Mapa(nullptr, nullptr, nullptr));
+		}
+
+		MAPAS::lista[0]->cambiarPuertas(nullptr, MAPAS::lista[1], MAPAS::lista[2]);
+		MAPAS::lista[1]->cambiarPuertas(MAPAS::lista[0], MAPAS::lista[2], MAPAS::lista[3]);
+		MAPAS::lista[2]->cambiarPuertas(MAPAS::lista[1], MAPAS::lista[3], MAPAS::lista[4]);
+		MAPAS::lista[3]->cambiarPuertas(MAPAS::lista[2], MAPAS::lista[4], MAPAS::lista[0]);
+		MAPAS::lista[4]->cambiarPuertas(MAPAS::lista[3], MAPAS::lista[0], MAPAS::lista[1]);
+
+
+		MAPAS::lista[0]->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Agua, Agua, Agua, Agua, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Granito, Pasto, Pasto, Pasto, Agua, Agua, Agua, Agua, Pasto, Pasto, Pasto, Granito, Pasto, Maceta },
+			{ Maceta, Pasto, Granito, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Granito, Pasto, Maceta },
+			{ Maceta, Pasto, Granito, Granito, Granito, Granito, Pasto, Pasto, Pasto, Pasto, Granito, Granito, Granito, Granito, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+		MAPAS::lista[0]->objetos = gcnew List<Objeto ^>();
+		MAPAS::lista[0]->generarCapaTerreno();
+
+		MAPAS::lista[1]->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Roca, Pasto, Pasto, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Granito, Granito, Granito, Granito, Granito, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Granito, Agua, Agua, Agua, Granito, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Granito, Granito, Granito, Granito, Granito, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
+			{ Maceta, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+		MAPAS::lista[1]->objetos = gcnew List<Objeto ^>();
+		MAPAS::lista[1]->generarCapaTerreno();
+
+		MAPAS::lista[2]->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Pasto, Pasto, Hielo, Pasto, Pasto, Pasto, Pasto, Arena, Arena, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Hielo, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Hielo, Pasto, Pasto, Hielo, Hielo, Hielo, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Hielo, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Pasto, Pasto, Hielo, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Hielo, Pasto, Pasto, Pasto, Hielo, Hielo, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+		MAPAS::lista[2]->objetos = gcnew List<Objeto ^>();
+		MAPAS::lista[2]->generarCapaTerreno();
+
+		MAPAS::lista[3]->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Tierra, Tierra, Tierra, Granito, Arena, Arena, Arena, Granito, Agua, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Tierra, Granito, Arena, Arena, Arena, Granito, Agua, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Granito, Granito, Granito, Arena, Arena, Arena, Granito, Granito, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Granito, Arena, Arena, Arena, Arena, Arena, Arena, Granito, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Granito, Arena, Tierra, Tierra, Tierra, Tierra, Arena, Granito, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Agua, Agua, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+		MAPAS::lista[3]->objetos = gcnew List<Objeto ^>();
+		MAPAS::lista[3]->generarCapaTerreno();
+
+		MAPAS::lista[4]->matriz_terreno = gcnew array<Terreno, 2> {
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
+			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
+			{ Maceta, Tierra, Tierra, Agua, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Roca, Agua, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Agua, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Roca, Agua, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Agua, Roca, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Roca, Agua, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Agua, Roca, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Roca, Agua, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Arena, Arena, Arena, Arena, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
+			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
+		};
+		MAPAS::lista[4]->objetos = gcnew List<Objeto ^>();
+		MAPAS::lista[4]->generarCapaTerreno();
+	}
+
 	Juego::Juego(void) {
+		
+		aleatorio = gcnew Random();
+		Mapa::puerta1 = gcnew Posicion(0, 3, true);
+		Mapa::puerta2 = gcnew Posicion(12, 0, true);
+		Mapa::puerta3 = gcnew Posicion(12, 9, true);
+
 		inicializarComponentes();
 		InitializeComponent();
 		myform = this;
 
 		graphics = this->CreateGraphics();
 		context = BufferedGraphicsManager::Current;
-		aleatorio = gcnew Random();
+
+
+		inicializarMapas();
 
 		//Inicializamos las escenas
 		ESCENAS::introduccion = gcnew IntroduccionEscena();
 		ESCENAS::mapa = gcnew MapaEscena();
 
-		MAPAS::salaverry->matriz_terreno = gcnew array<Terreno, 2> {
-			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
-			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Loceta, Loceta, Loceta, Loceta, Maceta },
-			{ Maceta, Pasto, Pasto, Pasto, Maceta, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
-			{ Maceta, Pasto, Pasto, Maceta, Pasto, Pasto, Pasto, Maceta, Pasto, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Maceta },
-			{ Maceta, Loceta, Loceta, Pasto, Maceta, Loceta, Loceta, Maceta, Maceta, Loceta, Loceta, Loceta, Maceta, Loceta, Loceta, Maceta },
-			{ Maceta, Loceta, Loceta, Maceta, Loceta, Loceta, Loceta, Maceta, Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
-			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
-			{ Maceta, Loceta, Loceta, Loceta, Loceta, Pasto, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Pasto, Maceta },
-			{ Maceta, Pasto, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Pasto, Pasto, Maceta },
-			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
-		};
-
-		MAPAS::salaverry->objetos = gcnew List<Objeto ^>();
-		MAPAS::salaverry->objetos->AddRange(gcnew array<Objeto ^>{
-			gcnew PuertaObjeto(Salaverry, gcnew Posicion(6, 3, true), gcnew Posicion(9, 7, true), Arriba)
-		});
-
-		MAPAS::salaverry->generarCapaTerreno();
+		
 
 		//Empezar el juego
 		Escena::EmpezarConEscena(ESCENAS::introduccion);
@@ -105,14 +188,25 @@ namespace FinalFantasy {
 	void Juego::inicializarComponentes() {
 		// Sprites
 		IMAGENES::MARCO_SPRITE = Image::FromFile("Imagenes\\Personajes\\Marco_Sprite.png");
+		IMAGENES::MONEDA_SPRITE = Image::FromFile("Imagenes\\Objetos\\Moneda_Sprite.png");
 
 		// Fondos
 		IMAGENES::INTRODUCCION_FONDO = Image::FromFile("Imagenes\\Interfaces\\Introduccion.png");
+		IMAGENES::PUERTA = Image::FromFile("Imagenes\\Objetos\\PUERTA.png");
 
 		// Objetos
-		IMAGENES::LOCETA = Image::FromFile("Imagenes\\Objetos\\Piso4.png");
-		IMAGENES::MACETA = Image::FromFile("Imagenes\\Objetos\\Bloque5.png");
-		IMAGENES::PASTO = Image::FromFile("Imagenes\\Objetos\\Piso2.png");
+		IMAGENES::LOCETA = Image::FromFile("Imagenes\\Objetos\\LOCETA.png");
+		IMAGENES::AGUA = Image::FromFile("Imagenes\\Objetos\\AGUA.png");
+		IMAGENES::ARENA = Image::FromFile("Imagenes\\Objetos\\ARENA.png");
+		IMAGENES::GRANITO = Image::FromFile("Imagenes\\Objetos\\GRANITO.png");
+		IMAGENES::HIELO = Image::FromFile("Imagenes\\Objetos\\HIELO.png");
+		IMAGENES::LAVA = Image::FromFile("Imagenes\\Objetos\\LAVA.png");
+		IMAGENES::LODO = Image::FromFile("Imagenes\\Objetos\\LODO.png");
+		IMAGENES::MACETA = Image::FromFile("Imagenes\\Objetos\\MACETA.png");
+		IMAGENES::PASTO = Image::FromFile("Imagenes\\Objetos\\PASTO.png");
+		IMAGENES::ROCA = Image::FromFile("Imagenes\\Objetos\\ROCA.png");
+		IMAGENES::TEJADO = Image::FromFile("Imagenes\\Objetos\\TEJADO.png");
+		IMAGENES::TIERRA = Image::FromFile("Imagenes\\Objetos\\TIERRA.png");
 
 		// Controles
 		CONTROLES::CAMBIO_ESCENA = Keys::E;
@@ -125,6 +219,10 @@ namespace FinalFantasy {
 		CONTROLES::MOVER_ABAJO_2 = Keys::Down;
 		CONTROLES::MOVER_IZQUIERDA_2 = Keys::Left;
 		CONTROLES::MOVER_DERECHA_2 = Keys::Right;
+
+		FUENTES::SUBTITULOS = gcnew System::Drawing::Font("ARIAL", TAMANIO_LETRAS - 2, FontStyle::Regular, GraphicsUnit::Point);
+		FUENTES::DIALOGOS = gcnew System::Drawing::Font("Lucida Console", TAMANIO_LETRAS, FontStyle::Regular, GraphicsUnit::Point);
+		FUENTES::DINERO = gcnew System::Drawing::Font("Lucida Console", TAMANIO_LETRAS - 8, FontStyle::Regular, GraphicsUnit::Point);
 	}
 
 	void IMAGENES::mostarFondo(Image ^imagen, Graphics ^graphics) {
@@ -168,4 +266,7 @@ namespace FinalFantasy {
 
 		return impide;
 	}
+
+
+
 }

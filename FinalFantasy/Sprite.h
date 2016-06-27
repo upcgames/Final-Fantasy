@@ -11,6 +11,7 @@ namespace FinalFantasy {
 		int subindice;
 		int ancho;
 		int alto;
+		int frecuencia;
 		int numero_de_filas;
 		int numero_de_columnas;
 

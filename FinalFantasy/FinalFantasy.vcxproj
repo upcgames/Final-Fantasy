@@ -83,12 +83,16 @@
     <ClCompile Include="Escena.cpp" />
     <ClCompile Include="EscenaDeMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
+    <ClCompile Include="Fuentes.h" />
     <ClCompile Include="IntroduccionEscena.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
+    <ClCompile Include="MapaArbol.cpp" />
     <ClCompile Include="MapaEscena.cpp" />
+    <ClCompile Include="MapaNodo.cpp" />
     <ClCompile Include="Marco.cpp" />
+    <ClCompile Include="MonedaObjeto.cpp" />
     <ClCompile Include="Objeto.cpp" />
     <ClCompile Include="ObjetoAnimado.cpp" />
     <ClCompile Include="ObjetoStatico.cpp" />
@@ -99,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constantes.h" />
+    <ClInclude Include="Controles.h" />
     <ClInclude Include="Dialogo.h" />
     <ClInclude Include="Escena.h" />
     <ClInclude Include="EscenaDeMapa.h" />
@@ -111,9 +116,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="MapaArbol.h" />
     <ClInclude Include="MapaEscena.h" />
+    <ClInclude Include="MapaNodo.h" />
     <ClInclude Include="Mapas.h" />
     <ClInclude Include="Marco.h" />
+    <ClInclude Include="MonedaObjeto.h" />
     <ClInclude Include="Objeto.h" />
     <ClInclude Include="ObjetoAnimado.h" />
     <ClInclude Include="ObjetoStatico.h" />

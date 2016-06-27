@@ -10,15 +10,15 @@ namespace FinalFantasy {
 		Font ^fuente;
 
 		int posicion_oracion;
-		int posicion_parrafo;
 		bool esperando_confirmacion;
-		bool se_escribio_todo;
+		bool pausar_anterior_escena;
 
 		float punto_de_comienzo;
 		int numero_de_caracteres;
 		int numero_de_oraciones;
 	public:
 		Escena ^escena_anterior;
+		int posicion_parrafo;
 
 		static Dialogo ^dialogo;
 
@@ -33,5 +33,7 @@ namespace FinalFantasy {
 		Dialogo(... array<String^> ^mensajes);
 
 		static void mostarMensaje(... array<String^> ^mensajes);
+		static void pausarYMostarMensaje(... array<String ^> ^mensajes);
+		static int getNumeroDeParrafo();
 	};
 }
