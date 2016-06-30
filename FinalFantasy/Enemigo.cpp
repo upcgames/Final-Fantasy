@@ -15,7 +15,7 @@ namespace FinalFantasy {
 		sprite->numero_de_filas = 6;
 
 		direccion = Direccion::Izquierda;
-		velocidad = Juego::aleatorio->Next(4) * 2 + 2;
+		velocidad = Juego::aleatorio->Next(4) * 2;
 		ancho = RESOLUCION_X;
 		alto = RESOLUCION_Y;
 	}
