@@ -41,6 +41,8 @@ namespace FinalFantasy {
 			Juego::myform->KeyUp += escena->onKeyUp;
 		if (escena->onMouseClick != nullptr)
 			Juego::myform->MouseClick += escena->onMouseClick;
+		if (escena->onMouseMove != nullptr)
+			Juego::myform->MouseMove += escena->onMouseMove;
 	}
 
 	void Escena::DesactivarEscena(Escena ^escena) {
@@ -54,6 +56,8 @@ namespace FinalFantasy {
 			Juego::myform->KeyUp -= escena->onKeyUp;
 		if (escena->onMouseClick != nullptr)
 			Juego::myform->MouseClick -= escena->onMouseClick;
+		if (escena->onMouseMove != nullptr)
+			Juego::myform->MouseMove -= escena->onMouseMove;
 
 		escena->escena_dibujada = false;
 	}

@@ -123,9 +123,6 @@
     <ClCompile Include="MapaNodo.cpp">
       <Filter>Arbol Binario</Filter>
     </ClCompile>
-    <ClCompile Include="BatallaEscena.cpp">
-      <Filter>Source Files\Escenas</Filter>
-    </ClCompile>
     <ClCompile Include="Enemigo.cpp">
       <Filter>Source Files\Personajes</Filter>
     </ClCompile>
@@ -202,9 +199,6 @@
     </ClInclude>
     <ClInclude Include="MapaNodo.h">
       <Filter>Arbol Binario</Filter>
-    </ClInclude>
-    <ClInclude Include="BatallaEscena.h">
-      <Filter>Header Files\Escenas</Filter>
     </ClInclude>
     <ClInclude Include="Enemigo.h">
       <Filter>Header Files\Personajes</Filter>

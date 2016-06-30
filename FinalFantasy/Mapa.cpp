@@ -128,9 +128,7 @@ namespace FinalFantasy {
 
 	void Mapa::mostrarEnemigos(Graphics ^graphics) {
 
-		int numero_de_enemigos = this->enemigos_en_mapa->Count;
-
-		for (int i = 0; i < numero_de_enemigos; i++)
+		for (int i = 0; i < enemigos_en_mapa->Count; i++)
 			enemigos_en_mapa[i]->Mostrar(graphics);
 	}
 

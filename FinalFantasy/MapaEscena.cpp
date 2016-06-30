@@ -14,6 +14,7 @@ namespace FinalFantasy {
 		onKeyDown = gcnew KeyEventHandler(this, &MapaEscena::teclaDown);
 		onKeyUp = gcnew KeyEventHandler(this, &MapaEscena::teclaUp);
 		onMouseClick = gcnew MouseEventHandler(this, &MapaEscena::mouseClick);
+		onMouseMove = gcnew MouseEventHandler(this, &MapaEscena::mouseMove);
 
 		Marco::marco = gcnew Marco(gcnew Posicion(9, 7, true));
 
@@ -74,7 +75,56 @@ namespace FinalFantasy {
 	void MapaEscena::mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 		Posicion ^posicion_mouse = gcnew Posicion(e->X, e->Y);
 
-		Marco::marco->posicion->x = (posicion_mouse->x / RESOLUCION_X) * RESOLUCION_X;;
-		Marco::marco->posicion->y = (posicion_mouse->y / RESOLUCION_Y) * RESOLUCION_Y;;
+		for (int i = 0; i < Mapa::mapa_actual->enemigos_en_mapa->Count; i++) {
+			Enemigo ^enemigo = Mapa::mapa_actual->enemigos_en_mapa[i];
+			
+			if (posicion_mouse->chocaCon(enemigo->posicion->getCuerpo())) {
+				enemigo->vida -= 1;
+				if (enemigo->vida == 0)
+					enemigo->Morir();
+				return;
+			}
+		}
+				
+
+		if (e->Button == MouseButtons::Right) {
+			Marco::marco->posicion->x = (posicion_mouse->x / RESOLUCION_X) * RESOLUCION_X;;
+			Marco::marco->posicion->y = (posicion_mouse->y / RESOLUCION_Y) * RESOLUCION_Y;;
+		}
+
+	}
+
+	void MapaEscena::mouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		int x = e->X - Marco::marco->posicion->x;
+		int y = e->Y - Marco::marco->posicion->y;
+
+		float m = x != 0 ? (Math::Abs((float)y / x)) : 2;
+
+		if (x >= 0 && y > 0) {
+			if (m < 1)
+				Marco::marco->direccion_arma = Derecha;
+			else
+				Marco::marco->direccion_arma = Abajo;
+		}
+		else if (x < 0 && y >= 0) {
+			if (m < 1)
+				Marco::marco->direccion_arma = Izquierda;
+			else
+				Marco::marco->direccion_arma = Abajo;
+		}
+		else if (x <= 0 && y < 0) {
+			if (m < 1)
+				Marco::marco->direccion_arma = Izquierda;
+			else
+				Marco::marco->direccion_arma = Arriba;
+		}
+		else {
+			if (m < 1)
+				Marco::marco->direccion_arma = Derecha;
+			else
+				Marco::marco->direccion_arma = Arriba;
+		}
+
+
 	}
 }

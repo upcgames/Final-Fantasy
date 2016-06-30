@@ -9,8 +9,12 @@ namespace FinalFantasy {
 		Enemigo ^enemigo_derecho;
 		Enemigo ^enemigo_izquierdo;
 		
+		bool muriendo = false;
+		int vida = 5;
+		
 		void avanzarUnPaso();
 		static void crearEnemigo(Enemigo^);
+		void Morir();
 
 		Enemigo();
 		Enemigo(Posicion ^p);

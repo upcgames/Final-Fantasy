@@ -79,7 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animado.cpp" />
-    <ClCompile Include="BatallaEscena.cpp" />
     <ClCompile Include="Dialogo.cpp" />
     <ClCompile Include="Enemigo.cpp" />
     <ClCompile Include="Escena.cpp" />
@@ -104,7 +103,6 @@
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BatallaEscena.h" />
     <ClInclude Include="Constantes.h" />
     <ClInclude Include="Controles.h" />
     <ClInclude Include="Dialogo.h" />

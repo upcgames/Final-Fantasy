@@ -27,7 +27,7 @@ namespace FinalFantasy {
 		Marco ^marco = Marco::marco;
 		Sprite ^marco_sprite = marco->sprite;
 
-		marco_sprite->cambiarSubindice((int)marco->direccion);
+		marco_sprite->cambiarSubindice((int)marco->direccion_arma);
 
 		graphics->DrawImage(
 			marco_sprite->imagen,

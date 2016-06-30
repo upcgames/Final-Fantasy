@@ -19,6 +19,7 @@ namespace FinalFantasy {
 		KeyEventHandler ^onKeyDown;
 		KeyEventHandler ^onKeyUp;
 		MouseEventHandler ^onMouseClick;
+		MouseEventHandler ^onMouseMove;
 		EventHandler ^onTimerTick;
 		
 		Escena();

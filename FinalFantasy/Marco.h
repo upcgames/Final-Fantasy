@@ -7,6 +7,7 @@ namespace FinalFantasy {
 	public:
 		static bool debe_avanzar;
 
+		Direccion direccion_arma = Izquierda;
 		void intentarAvanzar(Direccion direccion);
 		void avanzarUnPaso();
 		void Detener();
