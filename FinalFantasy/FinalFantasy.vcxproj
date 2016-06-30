@@ -81,6 +81,7 @@
     <ClCompile Include="Animado.cpp" />
     <ClCompile Include="BatallaEscena.cpp" />
     <ClCompile Include="Dialogo.cpp" />
+    <ClCompile Include="Enemigo.cpp" />
     <ClCompile Include="Escena.cpp" />
     <ClCompile Include="EscenaDeMapa.cpp" />
     <ClCompile Include="Figura.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="Constantes.h" />
     <ClInclude Include="Controles.h" />
     <ClInclude Include="Dialogo.h" />
+    <ClInclude Include="Enemigo.h" />
     <ClInclude Include="Escena.h" />
     <ClInclude Include="EscenaDeMapa.h" />
     <ClInclude Include="Escenas.h" />

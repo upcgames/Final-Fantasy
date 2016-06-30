@@ -131,8 +131,6 @@ namespace FinalFantasy {
 		ESCENAS::introduccion = gcnew IntroduccionEscena();
 		ESCENAS::mapa = gcnew MapaEscena();
 
-		
-
 		//Empezar el juego
 		Escena::EmpezarConEscena(ESCENAS::introduccion);
 	}
@@ -181,7 +179,8 @@ namespace FinalFantasy {
 
 	void Juego::inicializarComponentes() {
 		// Sprites
-		IMAGENES::MARCO_SPRITE = Image::FromFile("Imagenes\\Personajes\\Marco_Sprite.png");
+		IMAGENES::MARCO_SPRITE = Image::FromFile("Imagenes\\Personajes\\MARCO_SPRITE.png");
+		IMAGENES::ENEMIGO_SPRITE = Image::FromFile("Imagenes\\Personajes\\ENEMIGO_SPRITE.png");
 		IMAGENES::MONEDA_SPRITE = Image::FromFile("Imagenes\\Objetos\\Moneda_Sprite.png");
 
 		// Fondos

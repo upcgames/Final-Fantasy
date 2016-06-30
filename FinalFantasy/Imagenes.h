@@ -9,6 +9,7 @@ namespace FinalFantasy {
 		static void mostarFondo(Image ^imagen, Graphics ^graphics);
 
 		static Image ^MARCO_SPRITE;
+		static Image ^ENEMIGO_SPRITE;
 		static Image ^MONEDA_SPRITE;
 		static Image ^PUERTA;
 
@@ -24,8 +25,6 @@ namespace FinalFantasy {
 		static Image ^ROCA;
 		static Image ^TEJADO;
 		static Image ^TIERRA;
-
-		static Image ^BATALLA_SIMBOLO;
 
 		static Image^ INTRODUCCION_FONDO;
 		static Image^ BATALLA_FONDO;

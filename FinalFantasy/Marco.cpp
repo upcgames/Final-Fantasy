@@ -12,8 +12,8 @@ namespace FinalFantasy {
 		sprite->ancho = 48;
 		sprite->alto = 48;
 		sprite->frecuencia = 2;
-		sprite->numero_de_columnas = 8;
-		sprite->numero_de_filas = 6;
+		sprite->numero_de_columnas = 7;
+		sprite->numero_de_filas = 4;
 
 		direccion = Direccion::Abajo;
 		velocidad = 8;

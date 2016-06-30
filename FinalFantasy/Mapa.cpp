@@ -6,6 +6,13 @@ namespace FinalFantasy {
 
 	Mapa::Mapa() {
 		capa_terreno = Juego::context->Allocate(Juego::graphics, Juego::myform->ClientRectangle);
+
+		nodo_enemigo = gcnew Enemigo(gcnew Posicion(13, 4, true));
+		enemigos_en_mapa = gcnew List <Enemigo^>();
+		enemigos_en_mapa->Add(nodo_enemigo);
+
+		for (int i = 0; i < 10; i++)
+			Enemigo::crearEnemigo(nodo_enemigo);
 	}
 
 	void Mapa::generarCapaTerreno() {
@@ -119,8 +126,16 @@ namespace FinalFantasy {
 			objetos[i]->mostrar(graphics);
 	}
 
+	void Mapa::mostrarEnemigos(Graphics ^graphics) {
+
+		int numero_de_enemigos = this->enemigos_en_mapa->Count;
+
+		for (int i = 0; i < numero_de_enemigos; i++)
+			enemigos_en_mapa[i]->Mostrar(graphics);
+	}
+
 	Mapa ^Mapa::crearMapa(Mapa^ mapa) {
-		if (mapa->capa_terreno == nullptr)
+		if (mapa->objetos == nullptr)
 			return mapa;
 
 		if (Juego::aleatorio->Next(2)) {
@@ -138,7 +153,7 @@ namespace FinalFantasy {
 				mapa->mapa_p3->mapa_p1 = mapa;
 				return mapa->mapa_p3;
 			}
-			return crearMapa(mapa->mapa_p2);
+			return crearMapa(mapa->mapa_p3);
 
 		}
 

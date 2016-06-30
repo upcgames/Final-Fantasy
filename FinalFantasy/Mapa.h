@@ -1,6 +1,7 @@
 #pragma once
 #include "Posicion.h"
 #include "Objeto.h"
+#include "Enemigo.h"
 
 using namespace System::Collections::Generic;
 
@@ -11,6 +12,9 @@ namespace FinalFantasy {
 		array<Terreno, 2> ^matriz_terreno;
 		List<Objeto ^> ^objetos;
 		BufferedGraphics ^capa_terreno;
+
+		List<Enemigo ^>^ enemigos_en_mapa;
+		Enemigo^ nodo_enemigo;
 
 		static Posicion ^puerta1;
 		static Posicion ^puerta2;
@@ -25,6 +29,7 @@ namespace FinalFantasy {
 		void mostrarTerreno(Graphics ^graphics);
 		void generarCapaTerreno();
 		void mostrarObjetos(Graphics ^graphics);
+		void mostrarEnemigos(Graphics ^graphics);
 
 		Mapa();
 

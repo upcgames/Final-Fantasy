@@ -6,8 +6,6 @@ namespace FinalFantasy {
 	public ref class Marco : public Animado {
 	public:
 		static bool debe_avanzar;
-		Direccion direccion;
-		int velocidad;
 
 		void intentarAvanzar(Direccion direccion);
 		void avanzarUnPaso();

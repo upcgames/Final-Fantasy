@@ -126,6 +126,9 @@
     <ClCompile Include="BatallaEscena.cpp">
       <Filter>Source Files\Escenas</Filter>
     </ClCompile>
+    <ClCompile Include="Enemigo.cpp">
+      <Filter>Source Files\Personajes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="BatallaEscena.h">
       <Filter>Header Files\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemigo.h">
+      <Filter>Header Files\Personajes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -30,6 +30,7 @@ namespace FinalFantasy {
 			Mapa::mapa_actual->mostrarTerreno(escena_buffer->Graphics);
 			Mapa::mapa_actual->mostrarObjetos(escena_buffer->Graphics);
 			Mapa::mapa_actual->mostrarPuertas(escena_buffer->Graphics);
+			Mapa::mapa_actual->mostrarEnemigos(escena_buffer->Graphics);
 			Marco::mostrarloEn(escena_buffer->Graphics);
 			void mostrarPuertas(Graphics ^graphics);
 
