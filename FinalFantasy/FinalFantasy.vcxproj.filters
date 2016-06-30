@@ -201,7 +201,7 @@
       <Filter>Arbol Binario</Filter>
     </ClInclude>
     <ClInclude Include="Enemigo.h">
-      <Filter>Header Files\Personajes</Filter>
+      <Filter>Header Files\Clases Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

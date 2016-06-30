@@ -6,7 +6,15 @@
 namespace FinalFantasy {
 
 	Enemigo::Enemigo() {
-		sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE);
+		int random_image = Juego::aleatorio->Next(4);
+		if (random_image == 0)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_0);
+		else if (random_image == 1)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_1);
+		else if (random_image == 2)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_2);
+		else
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_3);
 		sprite->indice = 0;
 		sprite->ancho = 48;
 		sprite->alto = 48;
@@ -21,7 +29,15 @@ namespace FinalFantasy {
 	}
 	Enemigo::Enemigo(Posicion ^p) {
 		posicion = p;
-		sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE);
+		int random_image = Juego::aleatorio->Next(4);
+		if (random_image == 0)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_0);
+		else if (random_image == 1)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_1);
+		else if (random_image == 2)
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_2);
+		else
+			sprite = gcnew Sprite(IMAGENES::ENEMIGO_SPRITE_3);
 		sprite->indice = 0;
 		sprite->ancho = 48;
 		sprite->alto = 48;

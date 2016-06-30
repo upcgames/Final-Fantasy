@@ -11,7 +11,7 @@ namespace FinalFantasy {
 		enemigos_en_mapa = gcnew List <Enemigo^>();
 		enemigos_en_mapa->Add(nodo_enemigo);
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 80; i++)
 			Enemigo::crearEnemigo(nodo_enemigo);
 	}
 
