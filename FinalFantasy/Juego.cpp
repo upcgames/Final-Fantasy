@@ -10,7 +10,7 @@
 #include "Fuentes.h"
 #include "Imagenes.h"
 #include "Escenas.h"
-#include "Salaverry.cpp"
+#include "Mapa.h"
 
 namespace FinalFantasy {
 
@@ -27,20 +27,10 @@ namespace FinalFantasy {
 	Terreno TERRENOS_COLISIONANTES[] = { Maceta, Agua };
 
 	void inicializarMapas() {
-		MAPAS::lista = gcnew List<Mapa^>(5);
+		Mapa ^nuevo_mapa;
 
-		for (int i = 0; i < 5; i++) {
-			MAPAS::lista->Add(gcnew Mapa(nullptr, nullptr, nullptr));
-		}
-
-		MAPAS::lista[0]->cambiarPuertas(nullptr, MAPAS::lista[1], MAPAS::lista[2]);
-		MAPAS::lista[1]->cambiarPuertas(MAPAS::lista[0], MAPAS::lista[2], MAPAS::lista[3]);
-		MAPAS::lista[2]->cambiarPuertas(MAPAS::lista[1], MAPAS::lista[3], MAPAS::lista[4]);
-		MAPAS::lista[3]->cambiarPuertas(MAPAS::lista[2], MAPAS::lista[4], MAPAS::lista[0]);
-		MAPAS::lista[4]->cambiarPuertas(MAPAS::lista[3], MAPAS::lista[0], MAPAS::lista[1]);
-
-
-		MAPAS::lista[0]->matriz_terreno = gcnew array<Terreno, 2> {
+		nuevo_mapa = Mapa::crearMapa(Juego::cabeza);
+		Juego::cabeza->matriz_terreno = gcnew array<Terreno, 2> {
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Pasto, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Granito, Pasto, Maceta },
@@ -52,10 +42,11 @@ namespace FinalFantasy {
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
 		};
-		MAPAS::lista[0]->objetos = gcnew List<Objeto ^>();
-		MAPAS::lista[0]->generarCapaTerreno();
+		Juego::cabeza->objetos = gcnew List<Objeto ^>();
+		Juego::cabeza->generarCapaTerreno();
 
-		MAPAS::lista[1]->matriz_terreno = gcnew array<Terreno, 2> {
+		nuevo_mapa = Mapa::crearMapa(Juego::cabeza);
+		nuevo_mapa->matriz_terreno = gcnew array<Terreno, 2> {
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
 			{ Maceta, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Roca, Pasto, Pasto, Pasto, Tierra, Tierra, Tierra, Tierra, Pasto, Maceta },
@@ -67,10 +58,11 @@ namespace FinalFantasy {
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Roca, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
 		};
-		MAPAS::lista[1]->objetos = gcnew List<Objeto ^>();
-		MAPAS::lista[1]->generarCapaTerreno();
+		nuevo_mapa->objetos = gcnew List<Objeto ^>();
+		nuevo_mapa->generarCapaTerreno();
 
-		MAPAS::lista[2]->matriz_terreno = gcnew array<Terreno, 2> {
+		nuevo_mapa = Mapa::crearMapa(Juego::cabeza);
+		nuevo_mapa->matriz_terreno = gcnew array<Terreno, 2> {
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
 			{ Maceta, Pasto, Pasto, Hielo, Pasto, Pasto, Pasto, Pasto, Arena, Arena, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Hielo, Hielo, Pasto, Pasto, Maceta },
@@ -82,10 +74,11 @@ namespace FinalFantasy {
 			{ Maceta, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Pasto, Maceta },
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
 		};
-		MAPAS::lista[2]->objetos = gcnew List<Objeto ^>();
-		MAPAS::lista[2]->generarCapaTerreno();
+		nuevo_mapa->objetos = gcnew List<Objeto ^>();
+		nuevo_mapa->generarCapaTerreno();
 
-		MAPAS::lista[3]->matriz_terreno = gcnew array<Terreno, 2> {
+		nuevo_mapa = Mapa::crearMapa(Juego::cabeza);
+		nuevo_mapa->matriz_terreno = gcnew array<Terreno, 2> {
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
 			{ Maceta, Tierra, Tierra, Tierra, Granito, Arena, Arena, Arena, Granito, Agua, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
 			{ Maceta, Tierra, Tierra, Tierra, Granito, Arena, Arena, Arena, Granito, Agua, Agua, Tierra, Tierra, Tierra, Tierra, Maceta },
@@ -97,10 +90,11 @@ namespace FinalFantasy {
 			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
 		};
-		MAPAS::lista[3]->objetos = gcnew List<Objeto ^>();
-		MAPAS::lista[3]->generarCapaTerreno();
+		nuevo_mapa->objetos = gcnew List<Objeto ^>();
+		nuevo_mapa->generarCapaTerreno();
 
-		MAPAS::lista[4]->matriz_terreno = gcnew array<Terreno, 2> {
+		nuevo_mapa = Mapa::crearMapa(Juego::cabeza);
+		nuevo_mapa->matriz_terreno = gcnew array<Terreno, 2> {
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta},
 			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
 			{ Maceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Loceta, Maceta },
@@ -112,16 +106,16 @@ namespace FinalFantasy {
 			{ Maceta, Tierra, Tierra, Tierra, Tierra, Tierra, Arena, Arena, Arena, Arena, Tierra, Tierra, Tierra, Tierra, Tierra, Maceta },
 			{ Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta, Maceta }
 		};
-		MAPAS::lista[4]->objetos = gcnew List<Objeto ^>();
-		MAPAS::lista[4]->generarCapaTerreno();
+		nuevo_mapa->objetos = gcnew List<Objeto ^>();
+		nuevo_mapa->generarCapaTerreno();
 	}
 
 	Juego::Juego(void) {
 		
 		aleatorio = gcnew Random();
-		Mapa::puerta1 = gcnew Posicion(0, 3, true);
-		Mapa::puerta2 = gcnew Posicion(12, 0, true);
-		Mapa::puerta3 = gcnew Posicion(12, 9, true);
+		Mapa::puerta1 = gcnew Posicion(0, 4, true);
+		Mapa::puerta2 = gcnew Posicion(15, 2, true);
+		Mapa::puerta3 = gcnew Posicion(15, 7, true);
 
 		inicializarComponentes();
 		InitializeComponent();
@@ -130,7 +124,7 @@ namespace FinalFantasy {
 		graphics = this->CreateGraphics();
 		context = BufferedGraphicsManager::Current;
 
-
+		Juego::cabeza = gcnew Mapa();
 		inicializarMapas();
 
 		//Inicializamos las escenas
@@ -191,7 +185,8 @@ namespace FinalFantasy {
 		IMAGENES::MONEDA_SPRITE = Image::FromFile("Imagenes\\Objetos\\Moneda_Sprite.png");
 
 		// Fondos
-		IMAGENES::INTRODUCCION_FONDO = Image::FromFile("Imagenes\\Interfaces\\Introduccion.png");
+		IMAGENES::INTRODUCCION_FONDO = Image::FromFile("Imagenes\\Interfaces\\INTRODUCCION_0.png");
+		IMAGENES::BATALLA_FONDO = Image::FromFile("Imagenes\\Interfaces\\BATALLA_FONDO.png");
 		IMAGENES::PUERTA = Image::FromFile("Imagenes\\Objetos\\PUERTA.png");
 
 		// Objetos

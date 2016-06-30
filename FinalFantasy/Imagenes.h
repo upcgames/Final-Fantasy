@@ -25,6 +25,9 @@ namespace FinalFantasy {
 		static Image ^TEJADO;
 		static Image ^TIERRA;
 
+		static Image ^BATALLA_SIMBOLO;
+
 		static Image^ INTRODUCCION_FONDO;
+		static Image^ BATALLA_FONDO;
 	};
 }

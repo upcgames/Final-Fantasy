@@ -23,7 +23,6 @@ namespace FinalFantasy {
 	bool PuertaObjeto::interactuarConMarco() {
 		Marco::marco->posicion->igualarA(this->posicion_de_salida);
 		Marco::marco->direccion = this->direccion_de_salida;
-		Mapa::mapa_actual = Mapa::obtenerMapa(pabellon_de_salida);
 		return false;
 	}
 }

@@ -26,10 +26,9 @@ namespace FinalFantasy {
 		void generarCapaTerreno();
 		void mostrarObjetos(Graphics ^graphics);
 
-		void cambiarPuertas(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3);
-		Mapa(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3);
+		Mapa();
 
-		static Mapa ^obtenerMapa(MapaTipo pabellon);
+		static Mapa ^crearMapa(Mapa ^mapa);
 		static Mapa ^mapa_actual;
 	};
 

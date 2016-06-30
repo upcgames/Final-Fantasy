@@ -123,6 +123,9 @@
     <ClCompile Include="MapaNodo.cpp">
       <Filter>Arbol Binario</Filter>
     </ClCompile>
+    <ClCompile Include="BatallaEscena.cpp">
+      <Filter>Source Files\Escenas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Juego.h">
@@ -151,9 +154,6 @@
     </ClInclude>
     <ClInclude Include="Dialogo.h">
       <Filter>Header Files\Clases Unicas</Filter>
-    </ClInclude>
-    <ClInclude Include="Mapas.h">
-      <Filter>Header Files\Clases Staticas</Filter>
     </ClInclude>
     <ClInclude Include="Escena.h">
       <Filter>Header Files\Clases Base</Filter>
@@ -199,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="MapaNodo.h">
       <Filter>Arbol Binario</Filter>
+    </ClInclude>
+    <ClInclude Include="BatallaEscena.h">
+      <Filter>Header Files\Escenas</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

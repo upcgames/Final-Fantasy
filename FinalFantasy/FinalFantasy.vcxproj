@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animado.cpp" />
+    <ClCompile Include="BatallaEscena.cpp" />
     <ClCompile Include="Dialogo.cpp" />
     <ClCompile Include="Escena.cpp" />
     <ClCompile Include="EscenaDeMapa.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BatallaEscena.h" />
     <ClInclude Include="Constantes.h" />
     <ClInclude Include="Controles.h" />
     <ClInclude Include="Dialogo.h" />
@@ -119,7 +121,6 @@
     <ClInclude Include="MapaArbol.h" />
     <ClInclude Include="MapaEscena.h" />
     <ClInclude Include="MapaNodo.h" />
-    <ClInclude Include="Mapas.h" />
     <ClInclude Include="Marco.h" />
     <ClInclude Include="MonedaObjeto.h" />
     <ClInclude Include="Objeto.h" />

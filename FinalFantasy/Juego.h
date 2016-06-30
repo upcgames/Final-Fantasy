@@ -1,6 +1,7 @@
 #pragma once
 #include "Constantes.h"
 #include "Objeto.h"
+#include "Mapa.h"
 
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -18,6 +19,8 @@ namespace FinalFantasy {
 		//myform, graphics y context serviran para mostar los graficos.
 		static Juego ^myform;
 		static Graphics ^graphics;
+		static Mapa^ cabeza;
+
 		static BufferedGraphicsContext^ context;
 		static System::Windows::Forms::Timer ^timer;
 		System::ComponentModel::IContainer ^components;

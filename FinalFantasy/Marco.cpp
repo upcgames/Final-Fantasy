@@ -54,21 +54,24 @@ namespace FinalFantasy {
 
 		if (siguiente_posicion->getCuerpo().IntersectsWith(Mapa::puerta1->getCuerpo()) && Mapa::mapa_actual->mapa_p1 != nullptr) {
 			marco->Detener();
-			marco->posicion = gcnew Posicion(14, 3, true);
+			if (Mapa::mapa_actual->mapa_p1->mapa_p2 == Mapa::mapa_actual)
+				marco->posicion = gcnew Posicion(14, 2, true);
+			else
+				marco->posicion = gcnew Posicion(14, 7, true);
 			marco->direccion = Izquierda;
 			Mapa::mapa_actual = Mapa::mapa_actual->mapa_p1;
 			return;
 		}
 		if (siguiente_posicion->getCuerpo().IntersectsWith(Mapa::puerta2->getCuerpo()) && Mapa::mapa_actual->mapa_p2 != nullptr) {
 			marco->Detener();
-			marco->posicion = gcnew Posicion(1, 3, true);
+			marco->posicion = gcnew Posicion(1, 4, true);
 			marco->direccion = Derecha;
 			Mapa::mapa_actual = Mapa::mapa_actual->mapa_p2;
 			return;
 		}
 		if (siguiente_posicion->getCuerpo().IntersectsWith(Mapa::puerta3->getCuerpo()) && Mapa::mapa_actual->mapa_p3 != nullptr) {
 			marco->Detener();
-			marco->posicion = gcnew Posicion(1, 3, true);
+			marco->posicion = gcnew Posicion(1, 4, true);
 			marco->direccion = Derecha;
 			Mapa::mapa_actual = Mapa::mapa_actual->mapa_p3;
 			return;

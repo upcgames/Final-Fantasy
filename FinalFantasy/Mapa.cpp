@@ -1,21 +1,11 @@
-#pragma once
 #include "Imagenes.h"
-#include "Mapas.h"
 #include "Juego.h"
+#include "Mapa.h"
 
 namespace FinalFantasy {
 
-	Mapa::Mapa(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3) {
-		this->mapa_p1 = mapa_p1;
-		this->mapa_p2 = mapa_p2;
-		this->mapa_p3 = mapa_p3;
+	Mapa::Mapa() {
 		capa_terreno = Juego::context->Allocate(Juego::graphics, Juego::myform->ClientRectangle);
-	}
-
-	void Mapa::cambiarPuertas(Mapa^ mapa_p1, Mapa ^mapa_p2, Mapa ^mapa_p3) {
-		this->mapa_p1 = mapa_p1;
-		this->mapa_p2 = mapa_p2;
-		this->mapa_p3 = mapa_p3;
 	}
 
 	void Mapa::generarCapaTerreno() {
@@ -129,12 +119,28 @@ namespace FinalFantasy {
 			objetos[i]->mostrar(graphics);
 	}
 
-	Mapa ^Mapa::obtenerMapa(MapaTipo pabellon) {
+	Mapa ^Mapa::crearMapa(Mapa^ mapa) {
+		if (mapa->capa_terreno == nullptr)
+			return mapa;
 
-		switch (pabellon)
-		{
-		default:
-			return nullptr;
+		if (Juego::aleatorio->Next(2)) {
+			if (mapa->mapa_p2 == nullptr) {
+				mapa->mapa_p2 = gcnew Mapa();
+				mapa->mapa_p2->mapa_p1 = mapa;
+				return mapa->mapa_p2;
+			}
+			return crearMapa(mapa->mapa_p2);
+
 		}
+		else {
+			if (mapa->mapa_p3 == nullptr) {
+				mapa->mapa_p3 = gcnew Mapa();
+				mapa->mapa_p3->mapa_p1 = mapa;
+				return mapa->mapa_p3;
+			}
+			return crearMapa(mapa->mapa_p2);
+
+		}
+
 	}
 }

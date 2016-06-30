@@ -3,7 +3,7 @@
 #include "Controles.h"
 #include "MapaEscena.h"
 #include "Marco.h"
-#include "Mapas.h"
+#include "Mapa.h"
 #include "Juego.h"
 
 namespace FinalFantasy {
@@ -17,13 +17,11 @@ namespace FinalFantasy {
 
 		Marco::marco = gcnew Marco(gcnew Posicion(9, 7, true));
 
-		Mapa::mapa_actual = MAPAS::lista[0];
+		Mapa::mapa_actual = Juego::cabeza;
 	}
 
-	void MapaEscena::timerTick(System::Object^  sender, System::EventArgs^  e)
-	{
-		if (escena_activa)
-		{
+	void MapaEscena::timerTick(System::Object^  sender, System::EventArgs^  e) {
+		if (escena_activa) {
 			contador_timer++;
 
 			if (Marco::marco->debe_avanzar)
@@ -40,35 +38,28 @@ namespace FinalFantasy {
 		}
 	}
 
-	void MapaEscena::teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
-	{
-		if (escena_activa && escena_dibujada)
-		{
-			if (e->KeyCode == Keys::W || e->KeyCode == Keys::Up)
-			{
+	void MapaEscena::teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+		if (escena_activa && escena_dibujada) {
+			if (e->KeyCode == Keys::W || e->KeyCode == Keys::Up) {
 				Marco::marco->debe_avanzar = true;
 				Marco::marco->direccion = Arriba;
 			}
-			else if (e->KeyCode == Keys::S || e->KeyCode == Keys::Down)
-			{
+			else if (e->KeyCode == Keys::S || e->KeyCode == Keys::Down) {
 				Marco::marco->debe_avanzar = true;
 				Marco::marco->direccion = Abajo;
 			}
-			else if (e->KeyCode == Keys::A || e->KeyCode == Keys::Left)
-			{
+			else if (e->KeyCode == Keys::A || e->KeyCode == Keys::Left) {
 				Marco::marco->debe_avanzar = true;
 				Marco::marco->direccion = Izquierda;
 			}
-			else if (e->KeyCode == Keys::D || e->KeyCode == Keys::Right)
-			{
+			else if (e->KeyCode == Keys::D || e->KeyCode == Keys::Right) {
 				Marco::marco->debe_avanzar = true;
 				Marco::marco->direccion = Derecha;
 			}
 		}
 	}
 
-	void MapaEscena::teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
-	{
+	void MapaEscena::teclaUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if ((e->KeyCode == CONTROLES::MOVER_ARRIBA_1 || e->KeyCode == CONTROLES::MOVER_ARRIBA_2) && Marco::marco->direccion == Arriba)
 			Marco::marco->Detener();
 		else if ((e->KeyCode == CONTROLES::MOVER_ABAJO_1 || e->KeyCode == CONTROLES::MOVER_ABAJO_2) && Marco::marco->direccion == Abajo)
@@ -79,8 +70,10 @@ namespace FinalFantasy {
 			Marco::marco->Detener();
 	}
 
-	void MapaEscena::mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
-	{
-		;
+	void MapaEscena::mouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+		Posicion ^posicion_mouse = gcnew Posicion(e->X, e->Y);
+
+		Marco::marco->posicion->x = (posicion_mouse->x / RESOLUCION_X) * RESOLUCION_X;;
+		Marco::marco->posicion->y = (posicion_mouse->y / RESOLUCION_Y) * RESOLUCION_Y;;
 	}
 }

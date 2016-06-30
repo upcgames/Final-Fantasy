@@ -1,4 +1,4 @@
-#pragma once
+#include "Controles.h"
 #include "Imagenes.h"
 #include "Dialogo.h"
 #include "Escenas.h"
@@ -18,7 +18,10 @@ namespace FinalFantasy {
 
 				Dialogo::mostarMensaje(
 					"Bienvenido a Final Fantasy!!!",
-					"Juego de estructuras 2016 - UPC!",
+					"Juego de estructuras 2016-01 UPC!",
+					"El proposito de este juego SOLO es mostrar",
+					"los beneficios de los arboles AVL",
+					"en la estructura de datos",
 					"Se hace uso de arboles mediante",
 					"la recursividad!!!"
 				);
@@ -31,9 +34,20 @@ namespace FinalFantasy {
 	}
 
 	void IntroduccionEscena::teclaDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-		if (escena_activa && escena_dibujada) {
-			DesactivarEscena(this);
-			ActivarEscena(ESCENAS::mapa);
+
+		if (escena_activa) {
+
+			if (e->KeyCode == CONTROLES::SALIR) {
+				Dialogo::dialogo->terminarDeEscribir();
+				DesactivarEscena(this);
+				ActivarEscena(ESCENAS::mapa);
+				return;
+			}
+
+			if (escena_dibujada) {
+				DesactivarEscena(this);
+				ActivarEscena(ESCENAS::mapa);
+			}
 		}
 	}
 }
