@@ -39,5 +39,7 @@ Sera posible ganar este juego?
 > Comentar, corregir, sugerir, agregar funcionalidades y hacer juegos en grupo.
 
 <div align="center">
-  <img src="https://cloud.githubusercontent.com/assets/9372893/16879913/501dca4a-4a78-11e6-9783-3600e0b260d8.png">
+  <a href="https://github.com/upclab">
+    <img src="https://cloud.githubusercontent.com/assets/9372893/16879913/501dca4a-4a78-11e6-9783-3600e0b260d8.png">
+  </a>
 </div>
